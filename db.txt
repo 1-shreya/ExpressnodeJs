@@ -1,0 +1,31 @@
+use sample
+db
+show databases
+db.createCollection("users")//create table in mongodb
+db.users.insert({name:"shreya",age:22})
+db.users.insert({name:"abhi",age:25});
+db.users.insert({name:"shruti",age:23});
+db.users.insert({name:"darshan",age:19});
+db.users.insert({name:"vedant",age:16});
+db.users.insert({name:"mitali",age:23});
+
+db.users.find()//show table
+db.users.find().pretty()//show table
+
+db.users.find({age:23})//filter data 
+db.users.find({name:"Abhi"})
+db.users.find({age:{$lt:25}})//less than
+db.users.find({age:{$gt:20}})//greter than
+db.users.find({age:{$gte:19}})//<=
+db.users.find({age:{$ne:23}})//!=
+db.users.find({age:{$lte:19}})//>=
+
+db.users.find({$or:[{name:"abhi"},{age:23},{age:22}]})//logical or
+db.users.find({$and:[{name:"abhi"},{age:22}]})//logical and
+db.users.find({$or:[{name:"abhi"},{age:22}]})
+
+
+db.users.find({$or:[{age:21},{age:23},{age:25}]})
+db.users.find({age:{$in:[25,22,21]}})//in operator
+db.users.remove({age:23})
+db.users.update({age:25},{$set:{name:"ashu"}})
